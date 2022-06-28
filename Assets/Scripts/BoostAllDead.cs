@@ -26,7 +26,7 @@ public class BoostAllDead : MonoBehaviour
     {
        for (int i = 0; i < _monsterPooling.childCount; i++)
        {
-            _monsterPooling.GetChild(i).gameObject.GetComponent<EssenceMonster>().DeadMonstr();
+            _monsterPooling.GetChild(i).gameObject.GetComponent<EssenceMonster>().DeadMonstres();
        }
        yield return null;
     }

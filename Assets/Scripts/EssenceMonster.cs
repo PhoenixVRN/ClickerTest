@@ -13,9 +13,13 @@ public class EssenceMonster : MonoBehaviour
     [SerializeField] private int _scoreDead;
     private MonsterManager _monsterManager;
     private Vector3 _movPoint;
-    
+    public AudioSource _audioImpackt;
+    public ParticleSystem blood;
+
     void Start()
     {
+        blood.Stop();
+//        _audioImpackt = gameObject.GetComponent<AudioSource>();
         _monsterManager = GameObject.Find("MonsterManager").GetComponent<MonsterManager>();
         _movPoint = _monsterManager.PositionChoice();
     }
@@ -28,9 +32,10 @@ public class EssenceMonster : MonoBehaviour
 
     public void OnMouseDown()
     {
+        _audioImpackt.Play();
         health -= _monsterManager.hitDamage;
-        if (health <= 0) DeadMonstr();
-        
+        if (health <= 0) StartCoroutine(DeadMonstr());
+
     }
 
     private void Moving()
@@ -42,8 +47,14 @@ public class EssenceMonster : MonoBehaviour
         transform.position += _movPoint * speed * Time.deltaTime;
     }
 
-    public void DeadMonstr()
+    public void DeadMonstres()
     {
+        StartCoroutine(DeadMonstr());
+    }
+    public IEnumerator DeadMonstr()
+    {
+        blood.Play();
+        yield return new WaitForSeconds(1f);
         _monsterManager.MonsterDead(_scoreDead);
         Destroy(gameObject);
     }

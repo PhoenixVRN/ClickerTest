@@ -11,6 +11,7 @@ public class MonsterManager : MonoBehaviour
     public List<GameObject> boosters;
     [Space]
     public int hitDamage;
+    public AudioSource _audioDead;
     
     [Space]
     public ScoreData scorData;
@@ -113,6 +114,7 @@ public class MonsterManager : MonoBehaviour
 
     public void MonsterDead(int scoreDead)
     {
+        _audioDead.Play();
         score += scoreDead;
         LevelUp();
         if (score > scorData.scoreData)
