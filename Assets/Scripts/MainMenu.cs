@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,7 +7,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _mainMenu;
     [SerializeField] private GameObject _panelScore;
     [SerializeField] private GameObject _panelCredits;
-   
+    public TextMeshProUGUI myScore;
+    public ScoreData scoreData;
     
 
     public void StartGame()
@@ -23,6 +25,8 @@ public class MainMenu : MonoBehaviour
     {
         _mainMenu.SetActive(false);
         _panelScore.SetActive(true);
+        myScore.text = "My record score  " + scoreData.scoreData;
+
     }
     
     public void Credits()

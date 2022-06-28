@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public class EssenceMonster : MonoBehaviour
 {
     public string _name;
-    public int _health;
+    public int health;
     public float speed;
     [SerializeField] private int _scoreDead;
     private MonsterManager _monsterManager;
@@ -28,8 +28,8 @@ public class EssenceMonster : MonoBehaviour
 
     public void OnMouseDown()
     {
-        _health -= _monsterManager.hitDamage;
-        if (_health <= 0) DeadMonstr();
+        health -= _monsterManager.hitDamage;
+        if (health <= 0) DeadMonstr();
         
     }
 

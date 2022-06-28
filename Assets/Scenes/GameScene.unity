@@ -1186,6 +1186,7 @@ MonoBehaviour:
   textMonsterCount: {fileID: 1491006049}
   textGameOver: {fileID: 730094898}
   pauseSpawn: 0
+  scorData: {fileID: 11400000, guid: 52740521262cc1b42aa291ff9fad0b96, type: 2}
   countMonsters: 0
   spawnPauseTime: 0
   score: 0

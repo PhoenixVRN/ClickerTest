@@ -9,13 +9,18 @@ public class MonsterManager : MonoBehaviour
 {
     public List<GameObject> monster;
     public List<GameObject> boosters;
+    [Space]
     public int hitDamage;
+    
+    [Space]
+    public ScoreData scorData;
     public TextMeshProUGUI textScore;
     public TextMeshProUGUI textMonsterCount;
-    public TextMeshProUGUI textGameOver
-        ;
+    public TextMeshProUGUI textGameOver;
+
+    [HideInInspector]
     public bool pauseSpawn;
-    
+
     [HideInInspector] 
     public int countMonsters;
 
@@ -25,22 +30,31 @@ public class MonsterManager : MonoBehaviour
     [HideInInspector] 
     public int score;
 
-    [SerializeField] private int _leftBorderSpawn, _rightBorderSpawn, _upBorderSpawn, _downBorderSpawn;
+    [SerializeField, Header("Диапазон границ для спавна")]
+    private int _leftBorderSpawn;
+    [SerializeField]
+    private int _rightBorderSpawn;
+    [SerializeField]
+    private int _upBorderSpawn;
+    [SerializeField]
+    private int _downBorderSpawn;
+
+    [Header("Периоды спавна бустеров")]
+    public float spawnBoosters;
+    
+    [SerializeField, Header("Начальный период спавна врагов")]
     private float _spawnSpeed;
- 
-    private float _spawnBoosters;
+    
     private bool _endSpawn;
     private GameObject _poolingMonsters;
     
     void Start()
     {
-        _spawnBoosters = 5f;
         score = 0;
         textScore.text = "SCORE " + score;
         countMonsters = 0;
         textMonsterCount.text = "Monsters Count " + countMonsters;
         _poolingMonsters = GameObject.Find("MonsterPooling");
-        _spawnSpeed = 3f;
         StartCoroutine(SpawnMonsters());
         StartCoroutine(SpawnBoosters());
     }
@@ -55,7 +69,7 @@ public class MonsterManager : MonoBehaviour
     {
         while (!_endSpawn)
         {
-            yield return new WaitForSeconds(_spawnBoosters);
+            yield return new WaitForSeconds(spawnBoosters);
             var mons = Instantiate(MonsterChoice(boosters), PositionChoice(), Quaternion.identity);
         }
     }
@@ -75,6 +89,10 @@ public class MonsterManager : MonoBehaviour
                 }
                 var mons = Instantiate(MonsterChoice(monster), PositionChoice(), Quaternion.identity);
                 mons.transform.SetParent(_poolingMonsters.transform);
+                EssenceMonster monsterData = mons.GetComponent<EssenceMonster>();
+                monsterData.health += score;
+                monsterData.speed += score / 100;
+                _spawnSpeed -= score / 100;
                 pauseSpawn = false;
         }
     }
@@ -96,6 +114,9 @@ public class MonsterManager : MonoBehaviour
     public void MonsterDead(int scoreDead)
     {
         score += scoreDead;
+        LevelUp();
+        if (score > scorData.scoreData)
+            scorData.scoreData = score;
         textScore.text = "SCORE " + score;
         countMonsters--;
         textMonsterCount.text = "Monsters Count " + countMonsters;
@@ -107,5 +128,10 @@ public class MonsterManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         textGameOver.gameObject.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    private void LevelUp()
+    {
+        
     }
 }

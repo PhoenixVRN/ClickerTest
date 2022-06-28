@@ -1,10 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BoostAllDead : MonoBehaviour
 {
-  
     private MonsterManager _monsterManager;
     private Transform _monsterPooling;
     
@@ -27,9 +25,9 @@ public class BoostAllDead : MonoBehaviour
     IEnumerator DeadforChildren()
     {
        for (int i = 0; i < _monsterPooling.childCount; i++)
-        {
+       {
             _monsterPooling.GetChild(i).gameObject.GetComponent<EssenceMonster>().DeadMonstr();
-        }
+       }
        yield return null;
     }
 }

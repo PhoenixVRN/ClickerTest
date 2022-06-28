@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BoostPauseSpawn : MonoBehaviour
 {
+    [Header("Время паузы спавна")]
     public float spawnPause;
+    
     private MonsterManager _monsterManager;
     
     void Start()
