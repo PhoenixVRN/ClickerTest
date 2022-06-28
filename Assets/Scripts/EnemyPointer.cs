@@ -7,14 +7,14 @@ using UnityEngine;
 public class EnemyPointer : MonoBehaviour
 {
     private Transform _playerTransform;
-//   [SerializeField] private Transform _worldPointer;
-   [SerializeField] private Transform _pointerIconTransform;
-   [SerializeField] private Camera _camera;
+    [SerializeField ]
+    private Transform _pointerIconTransform;
+    private Camera _camera;
 
    private void Start()
    {
       _playerTransform = GameObject.Find("Centr").transform;
-//      _camera = Camera.main;
+      _camera = Camera.main;
    }
 
    private void Update()
@@ -43,7 +43,16 @@ public class EnemyPointer : MonoBehaviour
       minDistance = Mathf.Clamp(minDistance, 0, fromPlayerToEnemy.magnitude);
 
       Vector3 worldPosition = ray.GetPoint(minDistance);
-//      _worldPointer.position = worldPosition;
+
+      if (fromPlayerToEnemy.magnitude > minDistance + 0.5f)
+      {
+         _pointerIconTransform.gameObject.SetActive(true);
+      }
+      else
+      {
+         _pointerIconTransform.gameObject.SetActive(false);
+      }
+      
 
       _pointerIconTransform.position = _camera.WorldToScreenPoint(worldPosition);
       _pointerIconTransform.rotation = GetIconRotation(planeIndex);
