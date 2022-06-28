@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class MonsterManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class MonsterManager : MonoBehaviour
     public int hitDamage;
     public TextMeshProUGUI textScore;
     public TextMeshProUGUI textMonsterCount;
+    public TextMeshProUGUI textGameOver
+        ;
     public bool pauseSpawn;
     
     [HideInInspector] 
@@ -54,7 +57,6 @@ public class MonsterManager : MonoBehaviour
         {
             yield return new WaitForSeconds(_spawnBoosters);
             var mons = Instantiate(MonsterChoice(boosters), PositionChoice(), Quaternion.identity);
-//            mons.transform.SetParent(_poolingMonsters.transform);
         }
     }
     IEnumerator SpawnMonsters()
@@ -68,7 +70,8 @@ public class MonsterManager : MonoBehaviour
                 textMonsterCount.text = "Monsters Count " + countMonsters;
                 if (countMonsters > 10)
                 {
-                    //TODO рестарт
+                    _endSpawn = true;
+                    StartCoroutine(GameOver());
                 }
                 var mons = Instantiate(MonsterChoice(monster), PositionChoice(), Quaternion.identity);
                 mons.transform.SetParent(_poolingMonsters.transform);
@@ -96,5 +99,13 @@ public class MonsterManager : MonoBehaviour
         textScore.text = "SCORE " + score;
         countMonsters--;
         textMonsterCount.text = "Monsters Count " + countMonsters;
+    }
+
+    IEnumerator GameOver()
+    {
+        textGameOver.gameObject.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        textGameOver.gameObject.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
