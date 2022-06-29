@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -549,7 +549,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322945891}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7, z: -5}
+  m_LocalPosition: {x: 0, y: 7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 963194228}
@@ -657,8 +657,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527821780}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -6.4, z: 5.02}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -5.92, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 322945893}
@@ -1429,9 +1429,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster:
-  - {fileID: 1426150398442176533, guid: 421d89a97f0973e408075e51419f1e2c, type: 3}
-  - {fileID: 5606275407343960155, guid: d62209a2be5c92b4c9e17392cd30e83c, type: 3}
-  - {fileID: 8839558334962259668, guid: fd28a80d14809b2489892c5ef7f92c65, type: 3}
+  - {fileID: 7684195808412736099, guid: 32989bf57a7cb1a44942ce31b06bc4c2, type: 3}
+  - {fileID: 2068709775962082830, guid: a4d0a7535c80dc44bb1364850d5dbbe2, type: 3}
+  - {fileID: 4171572849636672366, guid: 36376646f21e5ab41b08907aaa8166c6, type: 3}
   boosters:
   - {fileID: 3390646120556136335, guid: b7bf1878a3145114c9d96c520e1fe7c2, type: 3}
   - {fileID: 8112136673284717180, guid: f06000518ed1f064fae5248592005d81, type: 3}

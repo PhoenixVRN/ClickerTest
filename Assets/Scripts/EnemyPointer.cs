@@ -7,8 +7,10 @@ using UnityEngine;
 public class EnemyPointer : MonoBehaviour
 {
     private Transform _playerTransform;
+    
     [SerializeField ]
     private Transform _pointerIconTransform;
+    
     private Camera _camera;
 
    private void Start()

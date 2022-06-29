@@ -18,8 +18,8 @@ public class EssenceMonster : MonoBehaviour
 
     void Start()
     {
-        blood.Stop();
-//        _audioImpackt = gameObject.GetComponent<AudioSource>();
+       
+        _audioImpackt = gameObject.GetComponent<AudioSource>();
         _monsterManager = GameObject.Find("MonsterManager").GetComponent<MonsterManager>();
         _movPoint = _monsterManager.PositionChoice();
     }
@@ -53,8 +53,8 @@ public class EssenceMonster : MonoBehaviour
     }
     public IEnumerator DeadMonstr()
     {
-        blood.Play();
-        yield return new WaitForSeconds(1f);
+        Instantiate(blood, transform.position,Quaternion.identity);
+        yield return new WaitForSeconds(0.3f);
         _monsterManager.MonsterDead(_scoreDead);
         Destroy(gameObject);
     }
