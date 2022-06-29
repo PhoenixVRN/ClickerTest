@@ -123,8 +123,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3943719233143259124}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5.5399003}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: -0.00000004371139}
+  m_LocalPosition: {x: 0, y: 0, z: 8.747868}
   m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
   m_Children:
   - {fileID: 7231831901247066594}
@@ -133,7 +133,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4576.214, y: 373.76572}
+  m_AnchoredPosition: {x: 426.8073, y: -254.92082}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5238968449540195953
@@ -268,7 +268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c3749e4453d366d4a8a79b9451dd7dd4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 10.697596
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c3749e4453d366d4a8a79b9451dd7dd4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -276,7 +276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c3749e4453d366d4a8a79b9451dd7dd4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.5646262
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c3749e4453d366d4a8a79b9451dd7dd4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -340,7 +340,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!136 &531408647
 CapsuleCollider:
@@ -466,7 +466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: 
   health: 30
-  speed: 0.2
+  speed: 1
   _scoreDead: 3
   _audioImpackt: {fileID: 7291102530423279975}
   blood: {fileID: 1570091161369372417, guid: eb0ce412a01a90e4fb8acb42d77c1f4d, type: 3}

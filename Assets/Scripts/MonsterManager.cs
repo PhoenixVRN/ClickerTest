@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class MonsterManager : MonoBehaviour
@@ -59,13 +58,7 @@ public class MonsterManager : MonoBehaviour
         StartCoroutine(SpawnMonsters());
         StartCoroutine(SpawnBoosters());
     }
-
-   
-    void Update()
-    {
-        
-    }
-
+    
     IEnumerator SpawnBoosters()
     {
         while (!_endSpawn)
@@ -116,7 +109,6 @@ public class MonsterManager : MonoBehaviour
     {
         _audioDead.Play();
         score += scoreDead;
-        LevelUp();
         if (score > scorData.scoreData)
             scorData.scoreData = score;
         textScore.text = "SCORE " + score;
@@ -132,8 +124,8 @@ public class MonsterManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    private void LevelUp()
+    public void Exit()
     {
-        
+        SceneManager.LoadScene(0);   
     }
 }

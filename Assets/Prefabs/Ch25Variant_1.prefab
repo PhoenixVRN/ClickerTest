@@ -340,7 +340,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!136 &259330850730290890
 CapsuleCollider:
@@ -466,7 +466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: 
   health: 10
-  speed: 0.3
+  speed: 2
   _scoreDead: 1
   _audioImpackt: {fileID: 2489659015217486252}
   blood: {fileID: 1570091161369372417, guid: eb0ce412a01a90e4fb8acb42d77c1f4d, type: 3}

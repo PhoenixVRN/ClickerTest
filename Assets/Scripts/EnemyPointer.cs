@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteAlways]
@@ -54,8 +51,6 @@ public class EnemyPointer : MonoBehaviour
       {
          _pointerIconTransform.gameObject.SetActive(false);
       }
-      
-
       _pointerIconTransform.position = _camera.WorldToScreenPoint(worldPosition);
       _pointerIconTransform.rotation = GetIconRotation(planeIndex);
    }

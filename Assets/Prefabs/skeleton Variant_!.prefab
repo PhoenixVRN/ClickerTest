@@ -326,6 +326,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 165502c63101eb747bc4482adfdd3257, type: 3}
   m_PrefabInstance: {fileID: 1185820289709388639}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &-2221903146991088492
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068709775962082830}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!136 &5085921446525382030
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -450,7 +466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: 
   health: 20
-  speed: 0.25
+  speed: 1.5
   _scoreDead: 2
   _audioImpackt: {fileID: 6512055266674297693}
   blood: {fileID: 1570091161369372417, guid: eb0ce412a01a90e4fb8acb42d77c1f4d, type: 3}

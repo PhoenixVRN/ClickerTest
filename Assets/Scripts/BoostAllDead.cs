@@ -18,7 +18,6 @@ public class BoostAllDead : MonoBehaviour
         if (_monsterPooling.childCount != 0)
         {
             StartCoroutine(DeadforChildren());
-            Destroy(gameObject);
         }
     }
 
@@ -26,8 +25,9 @@ public class BoostAllDead : MonoBehaviour
     {
        for (int i = 0; i < _monsterPooling.childCount; i++)
        {
-            _monsterPooling.GetChild(i).gameObject.GetComponent<EssenceMonster>().DeadMonstres();
+           _monsterPooling.GetChild(i).gameObject.GetComponent<EssenceMonster>().AllDead();
        }
-       yield return null;
+       yield return new WaitForSeconds(0.5f);
+       Destroy(gameObject);
     }
 }
